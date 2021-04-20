@@ -1,18 +1,11 @@
 import express from 'express';
+import { routes } from './routes';
+import "./database"
+
 
 const app = express();
-
-app.get('/', (req, res)=>{
-    return res.json({
-        message: 'NLW05'
-    })
-})
-
-app.post('/users', (req, res)=>{
-    return res.json({
-        message: 'user saved successfully',
-    })
-})
+app.use(express.json())
+app.use(routes)
 
 app.listen(3333, ()=>{
     console.log('server is runnig')
